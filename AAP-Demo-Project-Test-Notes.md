@@ -1,14 +1,14 @@
 **Project Repository:**
 
 [https://github.com/RedhatOfficial/aap-demo](https://github.com/RedhatOfficial/aap-demo)  
-
+<br>
 
 
 
 **Project Description:**
 
 Deploy AAP to a local MicroShift cluster in minutes, is a LOCAL DEVELOPMENT tool and must NEVER be used in production.  
-
+<br>
 
 
 
