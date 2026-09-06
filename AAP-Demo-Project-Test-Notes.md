@@ -41,7 +41,7 @@ Location to save `pull-secret.txt`:
 
 [root@aap-demo ~]# cd .aap-demo/
 [root@aap-demo .aap-demo]# cat pull-secret.txt 
-{"auths":{"cloud.openshift.com":{"auth":"b3BlbnNoaWZ0LXJlbGVhc2UtZGV2K29jbV9hY2Nlc3NfY2VlOGRmODk0Nzc2NGM3NWE5NjI2NjNmYjI1YjVlZmQ6U1NTMU8xM1ZMVEdOWVM4VElHWkNYS1ZIWUlYSEQ3UzBONldDWDdUSjlRWkEzMzBRN0g4UFE0SEoxSjJNU1lKWQ==","email":"jewang@redhat.com"},"quay.io":{"auth":"b3BlbnNoaWZ0LXJlbGVhc2UtZGV2K29jbV9hY2Nlc3NfY2VlOGRmODk0Nzc2NGM3NWE5NjI2NjNmYjI1YjVlZmQ6U1NTMU8xM1ZMVEdOWVM4VElHWkNYS1ZIWUlYSEQ3UzBONldDWDdUSjlRWkEzMzBRN0g4UFE0SEoxSjJNU1lKWQ==","email":"jewang@redhat.com"},"registry.connect.redhat.com":{"auth":"NTM0MjM3MTN8dWhjLTFlckN4dzg1N0ptbVJQbTNLVmlsVG5JUmF4TjpleUpoYkdjaU9pSlNVelV4TWlKOS5leUp6ZFdJaU9pSmpZVGc0WXpaaU1qWTNPREEwT0RKbVlUVTNNRGd3WkdZd01tSTFNREEyTWlKOS5TQUhvLTRVTFlkM05qQlV6U0dSR2xSV3ZTZGE1Tk1CcmcybUVueWQ4bHgyaWhGZHFGejdfZFZ3MWRhbXRwZjdGTzlNV2dZNDhwTjhPSkJUdGV6aElIOTV6akY0RDRRNHZOZHBNckI0V0hlUkY2Qmh6WWg4aWdDVmpGVjdKQzY3cTBKZ3cya3NMcU82U0R6VVRBOXdyTnNZdmhOOGMtUWxOSFl5T2N5WDBvajZzNW43Y1VacVlIcVg4RzlyS3BSSWVnY1hITXVLS2dxRU9fS18ycVBET1RPYkNtMU5JZFR0Vm5wbUltRDA1ZUdEZGdGbzJSbjdVajcxcDZVQ0NNeHJkbGxucEY4T3hSeVp5bU5KMlpPQ0NFNWxoZGRZa2luMGRSU2ZkckFEaExILWVUMGtBaXFrTC1DdVFqRTR0NzdRMjhqUkFjcXlFNkIzWU84am5vVkhEZ1VnQnp6UFk1aGY0eXNQc1V3Y08yRWM0aGsyLXhKZXNUUm9PVG5Bd2t3cFJRNHBCOFVmb3lBZFJJeTMzUTZNUGwwXzFHblRLZFFvb3V3WHJ1SW56bEhlVHpDck9XNno2S3lCTDRhYlZyQnFVam1yMktQcWJmcFk3TUkyUHFjbTdNLU9fcU1QMEctXzhzUDJDcjdfZ0N1Z2JJVUFkSHpXQXA2WXZwMXFrVFVNa2lFdzFmWkNHTXFkaXFmMzd3WUJwamlFT29uVkU4MkVTdEl0aE00cnBtUXRBQi1rSU1nUUNfTEtYTVZBT2VRM0owa3RWUHJjc1VuamtZZWU4OGZUVGI1Q0c2NjJjODJNaTZldHhuektXRnQxTG1QWFRna3hfRnZnX2lacEkyUVFPMWxXcm12WjZxWWZMNUdWMWlHUFRQekRPeGhDOGZXbnlYaE9DWlhzMWR5QQ==","email":"jewang@redhat.com"},"registry.redhat.io":{"auth":"NTM0MjM3MTN8dWhjLTFlckN4dzg1N0ptbVJQbTNLVmlsVG5JUmF4TjpleUpoYkdjaU9pSlNVelV4TWlKOS5leUp6ZFdJaU9pSmpZVGc0WXpaaU1qWTNPREEwT0RKbVlUVTNNRGd3WkdZd01tSTFNREEyTWlKOS5TQUhvLTRVTFlkM05qQlV6U0dSR2xSV3ZTZGE1Tk1CcmcybUVueWQ4bHgyaWhGZHFGejdfZFZ3MWRhbXRwZjdGTzlNV2dZNDhwTjhPSkJUdGV6aElIOTV6akY0RDRRNHZOZHBNckI0V0hlUkY2Qmh6WWg4aWdDVmpGVjdKQzY3cTBKZ3cya3NMcU82U0R6VVRBOXdyTnNZdmhOOGMtUWxOSFl5T2N5WDBvajZzNW43Y1VacVlIcVg4RzlyS3BSSWVnY1hITXVLS2dxRU9fS18ycVBET1RPYkNtMU5JZFR0Vm5wbUltRDA1ZUdEZGdGbzJSbjdVajcxcDZVQ0NNeHJkbGxucEY4T3hSeVp5bU5KMlpPQ0NFNWxoZGRZa2luMGRSU2ZkckFEaExILWVUMGtBaXFrTC1DdVFqRTR0NzdRMjhqUkFjcXlFNkIzWU84am5vVkhEZ1VnQnp6UFk1aGY0eXNQc1V3Y08yRWM0aGsyLXhKZXNUUm9PVG5Bd2t3cFJRNHBCOFVmb3lBZFJJeTMzUTZNUGwwXzFHblRLZFFvb3V3WHJ1SW56bEhlVHpDck9XNno2S3lCTDRhYlZyQnFVam1yMktQcWJmcFk3TUkyUHFjbTdNLU9fcU1QMEctXzhzUDJDcjdfZ0N1Z2JJVUFkSHpXQXA2WXZwMXFrVFVNa2lFdzFmWkNHTXFkaXFmMzd3WUJwamlFT29uVkU4MkVTdEl0aE00cnBtUXRBQi1rSU1nUUNfTEtYTVZBT2VRM0owa3RWUHJjc1VuamtZZWU4OGZUVGI1Q0c2NjJjODJNaTZldHhuektXRnQxTG1QWFRna3hfRnZnX2lacEkyUVFPMWxXcm12WjZxWWZMNUdWMWlHUFRQekRPeGhDOGZXbnlYaE9DWlhzMWR5QQ==","email":"jewang@redhat.com"}}}
+{"auths":{"cloud.openshift.com":{"auth":"xxxxxxxxxxxxxxxxxxxxxx","email":"jewang@redhat.com"}}}
 
 ```
 
@@ -581,19 +581,19 @@ When enabling Automation Orchestrator (ao) in an OpenShift/CRC environment, the 
 
 The specific causes include:
 
-- **Webhook timeout hang:**
+Webhook timeout hang:
 
   - Symptom: Running `aap-demo enable ao` throws `failed calling webhook "mcluster.cnpg.io": no endpoints available`.
 
   - Cause: Stale CNPG webhook validation configurations remain in the cluster, but no actual CNPG Operator Pods are running in the `cnpg-system` namespace.
 
-- **Database Cluster fails to be created:**
+Database Cluster fails to be created:
 
   - Symptom: After cleaning up the webhook and retrying, the process hangs at `PostgreSQL cluster not ready after 10 minutes`.
 
   - Cause: The CNPG operator is not actually deployed and running, so the submitted `orchestrator-postgres` database resource has no controller and no underlying database Pod is created.
 
-- **CNPG Deployment progress deadline exceeded:**
+CNPG Deployment progress deadline exceeded:
 
   - Symptom: After manually deploying CNPG, `cnpg-controller-manager` reports `exceeded its progress deadline`.
 
@@ -610,33 +610,33 @@ Clean up stale CNPG Webhook configurations:
 
 Install the CNPG Operator and grant OpenShift Privileged SCC:
 
-# Create the namespace and label it for privileged enforcement:
+Create the namespace and label it for privileged enforcement:
 
 ```
 [admin@aap-demo ~]$ kubectl create ns cnpg-system --dry-run=client -o yaml | kubectl apply -f -
 [admin@aap-demo ~]$ kubectl label ns cnpg-system pod-security.kubernetes.io/enforce=privileged --overwrite
 ```
 
-# Deploy the CNPG operator (v1.22.1):
+Deploy the CNPG operator (v1.22.1):
 
 ```
 [admin@aap-demo ~]$ kubectl apply -f https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.22/releases/cnpg-1.22.1.yaml
 ```
 
-# Patch OpenShift SCC privileges directly using kubectl:
+Patch OpenShift SCC privileges directly using kubectl:
 
 ```
 [admin@aap-demo ~]$ kubectl patch scc privileged --type='json' -p='[{"op": "add", "path": "/users/-", "value": "system:serviceaccount:cnpg-system:cnpg-manager"}]' --ignore-not-found
 ```
 
-# Restart and wait for the CNPG Operator to reach Ready state:
+Restart and wait for the CNPG Operator to reach Ready state:
 
 ```
 [admin@aap-demo ~]$ kubectl rollout restart deployment cnpg-controller-manager -n cnpg-system
 [admin@aap-demo ~]$ kubectl rollout status deployment/cnpg-controller-manager -n cnpg-system --timeout=120s
 ```
 
-# Re-run the add-on after the above steps complete:
+Re-run the add-on after the above steps complete:
 
 ```
 [admin@aap-demo ~]$ aap-demo enable ao
@@ -789,13 +789,14 @@ Verifying OAuth client credentials...
 
 There are two main causes:
 
-- **CRC/MicroShift internal DNS resolution deadlock:** The Portal Pod attempts to connect to the AAP OAuth endpoint from inside the container. In a CRC/MicroShift environment, `nip.io` resolves to `127.0.0.1` inside Pods, which points back to the Pod itself rather than to the actual Ingress router — causing the connection to fail.
+CRC/MicroShift internal DNS resolution deadlock: The Portal Pod attempts to connect to the AAP OAuth endpoint from inside the container. In a CRC/MicroShift environment, `nip.io` resolves to `127.0.0.1` inside Pods, which points back to the Pod itself rather than to the actual Ingress router — causing the connection to fail.
 
-- **CRC node CPU resource contention (Pod Pending):** The Portal requests a relatively high CPU quota by default, which can easily trigger `Insufficient cpu` on a single-node CRC environment, leaving the new Pod stuck in Pending.
+CRC node CPU resource contention (Pod Pending): The Portal requests a relatively high CPU quota by default, which can easily trigger `Insufficient cpu` on a single-node CRC environment, leaving the new Pod stuck in Pending.
+
 
 Apply the following fixes for the CRC environment:
 
-# 1. Reduce CPU request quota to resolve the Pending scheduling issue
+1. Reduce CPU request quota to resolve the Pending scheduling issue
 
 ```
 [admin@aap-demo ~]$ kubectl patch deployment redhat-rhaap-portal -n redhat-rhaap-portal --type='json' -p='[
@@ -804,7 +805,7 @@ Apply the following fixes for the CRC environment:
 ]'
 ```
 
-# 2. Inject hostAliases to force-map the AAP domain to the cluster's internal Ingress Router ClusterIP (10.217.4.100)
+2. Inject hostAliases to force-map the AAP domain to the cluster's internal Ingress Router ClusterIP (10.217.4.100)
 
 ```
 [admin@aap-demo ~]$ kubectl patch deployment redhat-rhaap-portal -n redhat-rhaap-portal --type='json' -p='[
@@ -814,13 +815,13 @@ Apply the following fixes for the CRC environment:
 ]'
 ```
 
-# 3. Wait for the rolling update to complete
+3. Wait for the rolling update to complete
 
 ```
 [admin@aap-demo ~]$ kubectl rollout status deployment/redhat-rhaap-portal -n redhat-rhaap-portal --timeout=120s
 ```
 
-# 4. Confirm the Pod is in 2/2 Running state:
+4. Confirm the Pod is in 2/2 Running state:
 
 ```
 [admin@aap-demo ~]$ kubectl get pods -n redhat-rhaap-portal 
@@ -830,7 +831,7 @@ redhat-rhaap-portal-postgresql-0       1/1     Running   0          8m28s
 
 ```
 
-# 5. Verify that the container can reach the AAP OAuth endpoint internally (HTTP 405 means the connection is fully working):
+5. Verify that the container can reach the AAP OAuth endpoint internally (HTTP 405 means the connection is fully working):
 
 ```
 [admin@aap-demo ~]$ kubectl exec -n redhat-rhaap-portal deployment/redhat-rhaap-portal -- curl -k -s -o /dev/null -w "%{http_code}\n" https://aap-aap-operator.apps-crc.testing/o/token/
