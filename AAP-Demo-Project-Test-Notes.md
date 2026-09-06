@@ -2,16 +2,13 @@
 
 [https://github.com/RedhatOfficial/aap-demo](https://github.com/RedhatOfficial/aap-demo)  
 <br>
-
-
+<br>
 
 **Project Description:**
 
 Deploy AAP to a local MicroShift cluster in minutes, is a LOCAL DEVELOPMENT tool and must NEVER be used in production.  
 <br>
-
-
-
+<br>
 
 **Prerequisites:**
 
@@ -32,8 +29,8 @@ Deploy AAP to a local MicroShift cluster in minutes, is a LOCAL DEVELOPMENT tool
 - Deployment must be performed as a non-root user (create a regular user `admin` and configure sudoers for privilege escalation)
 
 - The system must be named in FQDN format, with `/etc/hosts` updated accordingly
-
-  
+<br>
+<br>
 
 **Step-by-Step Instructions:**
 
@@ -42,7 +39,7 @@ Deploy AAP to a local MicroShift cluster in minutes, is a LOCAL DEVELOPMENT tool
 Download OpenShift Local and the pull secret first:
 
 ![](images/WEBRESOURCEd6a8349c6b4c5f294521b1c8f3378890image.png)
-
+<br>
 
 
 Location to save `pull-secret.txt`:
@@ -55,7 +52,7 @@ Location to save `pull-secret.txt`:
 {"auths":{"cloud.openshift.com":{"auth":"xxxxxxxxxxxxxxxxxxxxxx","email":"jewang@redhat.com"}}}
 
 ```
-
+<br>
 
 
 2. Download and deploy the crc (OpenShift Local) installation tool:
@@ -67,7 +64,7 @@ Location to save `pull-secret.txt`:
 
 [admin@aap-demo ~]$ sudo cp crc-linux-*/crc /usr/local/bin/
 ```
-
+<br>
 
 
 3. Install and start crc:
@@ -116,7 +113,7 @@ oc:  129.79 MiB / 129.79 MiB [--------------------------------------------------
 Your system is correctly setup for using CRC. Use 'crc start' to start the instance
 
 ```
-
+<br>
 
 
 ```
@@ -190,8 +187,8 @@ Use the 'oc' command line interface:
   $ oc login -u developer https://api.crc.testing:6443
 
 ```
-
-
+<br>
+<br>
 
 4. Prepare NFS Storage Class:
 
@@ -207,14 +204,13 @@ Assuming CRC is stopped, adjust CRC's core parameters to prevent resource exhaus
 [admin@aap-demo ~]$ crc config set cpus 8
 ```
 
-
-
+<br>
 Start CRC:
 
 ```
 [admin@aap-demo ~]$ crc start
 ```
-
+<br>
 
 
 Export credentials template (optional):
@@ -222,7 +218,7 @@ Export credentials template (optional):
 ```
 [admin@aap-demo ~]$ export KUBECONFIG=~/.crc/machines/crc/kubeconfig
 ```
-
+<br>
 
 Note:
 
@@ -241,7 +237,7 @@ If you need to clean up a previously deployed CRC instance and reconfigure from 
 
 [admin@aap-demo ~]$ export KUBECONFIG=~/.crc/machines/crc/kubeconfig
 ```
-
+<br>
 
 Configure the built-in NFS service inside CRC:
 
@@ -253,7 +249,7 @@ Configure the built-in NFS service inside CRC:
 [admin@aap-demo ~]$ sudo exportfs -a 
 [admin@aap-demo ~]$ sudo systemctl enable --now nfs-server
 ```
-
+<br>
 
 Create the namespace and grant privileged SCC access:
 
@@ -262,7 +258,7 @@ Create the namespace and grant privileged SCC access:
 [admin@aap-demo ~]$ kubectl label ns nfs-provisioner pod-security.kubernetes.io/enforce=privileged --overwrite
 [admin@aap-demo ~]$ kubectl patch scc privileged --type='json' -p='[{"op": "add", "path": "/users/-", "value": "system:serviceaccount:nfs-provisioner:nfs-client-provisioner"}]'
 ```
-
+<br>
 
 Deploy the NFS Provisioner with full RBAC permissions and the `nfs-local-rwx` StorageClass:
 
@@ -351,7 +347,7 @@ reclaimPolicy: Delete
 allowVolumeExpansion: true
 EOF
 ```
-
+<br>
 
 Remove the Default annotation from the built-in StorageClass and set NFS as the sole default:
 
@@ -360,21 +356,21 @@ Remove the default annotation from the built-in StorageClass:
 ```
 [admin@aap-demo ~]$ kubectl patch storageclass crc-csi-hostpath-provisioner -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"false"}}}'
 ```
-
+<br>
 
 Set `nfs-local-rwx` as the only global default StorageClass:
 
 ```
 [admin@aap-demo ~]$ kubectl patch storageclass nfs-local-rwx -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
 ```
-
+<br>
 
 Remove any potential node Taints to ensure unobstructed scheduling:
 
 ```
 [admin@aap-demo ~]$ kubectl uncordon crc
 ```
-
+<br>
 
 Verify the Pod is in Running state:
 
@@ -384,7 +380,7 @@ NAME                                      READY   STATUS    RESTARTS   AGE
 nfs-client-provisioner-649769b78d-zqb76   1/1     Running   0          9h
 
 ```
-
+<br>
 
 Verify the StorageClass status is as follows:
 
@@ -394,7 +390,8 @@ NAME                           PROVISIONER                                   REC
 crc-csi-hostpath-provisioner   kubevirt.io.hostpath-provisioner              Retain          WaitForFirstConsumer   false                  25d
 nfs-local-rwx (default)        k8s-sigs.io/nfs-subdir-external-provisioner   Delete          Immediate              true                   9h
 ```
-
+<br>
+<br>
 
 5. Install aap-demo:
 
@@ -404,6 +401,7 @@ Install `operator-sdk` in the environment:
 [admin@aap-demo ~]$ export CURL_CA_BUNDLE=""
 [admin@aap-demo ~]$ echo 'insecure' >> ~/.curlrc
 ```
+<br>
 
 
 Run the aap-demo deployment:
@@ -411,7 +409,7 @@ Run the aap-demo deployment:
 ```
 [admin@aap-demo ~]$ aap-demo deploy
 ```
-
+<br>
 
 After deployment, check the status with:
 
@@ -474,7 +472,8 @@ Addons:
   product-demo-satellite disabled
 
 ```
-
+<br>
+<br>
 
 Note:
 
@@ -485,7 +484,7 @@ In this case, first check the aap-operator deployment progress with the followin
 ```
 [admin@aap-demo ~]$ kubectl logs -n aap-operator deployment/resource-operator-controller-manager -c manager --tail=50 -f
 ```
-
+<br>
 
 Alternatively, run `aap-demo status` to confirm the status, ensuring all Pods are in Running state:
 
@@ -499,14 +498,14 @@ Namespaces:
   nfs-provisioner                1/1 pods
 ......
 ```
-
+<br>
 
 At this point you can run the following command to force the Operator to refresh its status. If all Pods are healthy but the Condition has not been updated, add a harmless annotation to the main CR to force the Operator to recheck and mark the status as Successful:
 
 ```
 [admin@aap-demo ~]$ kubectl annotate ansibleautomationplatform --all -n aap-operator force-reconcile=$(date +%s) --overwrite
 ```
-
+<br>
 
 6. Access the aap-demo environment:
 
@@ -518,27 +517,27 @@ AAP Deployments:
   https://aap-aap-operator.apps-crc.testing                    <-- AAP access URL
   https://aap-mcp-aap-operator.apps.127.0.0.1.nip.io
 ```
-
+<br>
 Note that access must be via the hostname. If accessing through an SSH tunnel via a bastion host, update the hosts file on the client machine. For example, on a Windows machine:
 
 ```
 127.0.0.1  aap-aap-operator.apps-crc.testing
 ```
-
+<br>
 
 Establish the tunnel from the terminal:
 
 ```
 C:\Users\jerrywjl>ssh -L 10443:192.168.72.90:443 lab-user@bastion-2vvct.cluster-2vvct.dyn.redhatworkshops.io
 ```
-
+<br>
 
 The access URL is then:
 
 ```
 https://aap-aap-operator.apps-crc.testing:10443
 ```
-
+<br>
 
 The default username for the first login is `admin`. The admin password can be obtained via `aap-demo status`:
 
@@ -549,7 +548,7 @@ Credentials:
   aap-operator:        admin / MnNWItHbbLC6862JG5gNT7LgAujuOsPf
 ......
 ```
-
+<br>
 
 Or by running:
 
@@ -561,8 +560,8 @@ aap-eda-admin-password: 7WvWVTzcc3aXLjaSPFHaGamyPb5vTgM4
 aap-hub-admin-password: yXCOZqyKpjGDROcKcmpdcFuDTMocS1tT
 
 ```
-
-
+<br>
+<br>
 7. Enable aap-demo Add-ons:
 
 aap-demo includes the following add-ons, which can be enabled or disabled via command:
@@ -582,7 +581,7 @@ aap-demo enable product-demo-satellite       # Satellite demos (requires a Satel
 aap-demo disable addon_name                  # Disables addon
 
 ```
-
+<br>
 
 However, running `aap-demo enable ao` (Automation Orchestrator) produces the following error:
 
@@ -619,7 +618,7 @@ Error from server (InternalError): error when creating "STDIN": Internal error o
 ERROR: Failed to apply PostgreSQL manifests.
 
 ```
-
+<br>
 
 Root cause:
 
@@ -644,7 +643,7 @@ CNPG Deployment progress deadline exceeded:
   - Symptom: After manually deploying CNPG, `cnpg-controller-manager` reports `exceeded its progress deadline`.
 
   - Cause: OpenShift's Security Context Constraints (SCC) block the CNPG ServiceAccount, and the `oc` command is not installed in the current terminal, causing standard `oc adm` authorization to fail.
-
+<br>
 
 Resolution:
 
@@ -654,49 +653,43 @@ Clean up stale CNPG Webhook configurations:
 [admin@aap-demo ~]$ kubectl delete mutatingwebhookconfiguration -l app.kubernetes.io/name=cloudnative-pg --ignore-not-found
 [admin@aap-demo ~]$ kubectl delete validatingwebhookconfiguration -l app.kubernetes.io/name=cloudnative-pg --ignore-not-found
 ```
-
-
+<br>
+<br>
 Install the CNPG Operator and grant OpenShift Privileged SCC:
 
 Create the namespace and label it for privileged enforcement:
-
 ```
 [admin@aap-demo ~]$ kubectl create ns cnpg-system --dry-run=client -o yaml | kubectl apply -f -
 [admin@aap-demo ~]$ kubectl label ns cnpg-system pod-security.kubernetes.io/enforce=privileged --overwrite
 ```
-
+<br>
 
 Deploy the CNPG operator (v1.22.1):
-
 ```
 [admin@aap-demo ~]$ kubectl apply -f https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.22/releases/cnpg-1.22.1.yaml
 ```
-
+<br>
 
 Patch OpenShift SCC privileges directly using kubectl:
-
 ```
 [admin@aap-demo ~]$ kubectl patch scc privileged --type='json' -p='[{"op": "add", "path": "/users/-", "value": "system:serviceaccount:cnpg-system:cnpg-manager"}]' --ignore-not-found
 ```
-
+<br>
 
 Restart and wait for the CNPG Operator to reach Ready state:
-
 ```
 [admin@aap-demo ~]$ kubectl rollout restart deployment cnpg-controller-manager -n cnpg-system
 [admin@aap-demo ~]$ kubectl rollout status deployment/cnpg-controller-manager -n cnpg-system --timeout=120s
 ```
-
+<br>
 
 Re-run the add-on after the above steps complete:
-
 ```
 [admin@aap-demo ~]$ aap-demo enable ao
 ```
-
+<br>
 
 Access the AO Portal using the information from the deployment output:
-
 ```
 ........
 
@@ -710,7 +703,8 @@ Access the AO Portal using the information from the deployment output:
 
 ```
 
-
+<br>
+<br>
 Access AO via SSH tunnel:
 
 First update the client hosts file:
@@ -719,25 +713,24 @@ First update the client hosts file:
 127.0.0.1  aap-aap-operator.apps-crc.testing  automation-orchestrator.apps-crc.testing
 ```
 
-
+<br>
+<br>
 Establish the tunnel:
-
+<br>
 ```
 C:\Users\jerrywjl>ssh -L 20443:192.168.72.90:443 lab-user@bastion-2vvct.cluster-2vvct.dyn.redhatworkshops.io
 ```
-
-
+<br>
+<br>
 Access the AO portal at:
-
 ```
 https://automation-orchestrator.apps-crc.testing:20443
 ```
 
 ![](images/WEBRESOURCE359f5012fae871b8b48620fe12929482image.png)
 
-
+<br>
 Enable the portal add-on:
-
 ```
 [admin@aap-demo ~]$ curl -fsSL https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 Downloading https://get.helm.sh/helm-v3.21.4-linux-amd64.tar.gz
@@ -821,6 +814,7 @@ Verifying OAuth client credentials...
 Portal URL: https://redhat-rhaap-portal-redhat-rhaap-portal.apps-crc.testing
 Profile: x86 (Red Hat RHDH hub image from chart)
 
+
 Next steps:
 1. Open the portal URL in your browser
 2. Click 'Sign In'
@@ -834,7 +828,7 @@ Disable: aap-demo disable portal
  
 ```
 
-
+<br>
 Although the portal add-on was enabled successfully, there is one error:
 
 ```
@@ -845,30 +839,29 @@ Verifying OAuth client credentials...
 ⚠️  OAuth client verification failed (portal may still work)
 ```
 
-
+<br>
 There are two main causes:
-
+<br>
 CRC/MicroShift internal DNS resolution deadlock: The Portal Pod attempts to connect to the AAP OAuth endpoint from inside the container. In a CRC/MicroShift environment, `nip.io` resolves to `127.0.0.1` inside Pods, which points back to the Pod itself rather than to the actual Ingress router — causing the connection to fail.
 
-
+<br>
 CRC node CPU resource contention (Pod Pending): The Portal requests a relatively high CPU quota by default, which can easily trigger `Insufficient cpu` on a single-node CRC environment, leaving the new Pod stuck in Pending.
 
 
-
+<br>
+<br>
 Apply the following fixes for the CRC environment:
 
 1. Reduce CPU request quota to resolve the Pending scheduling issue
-
 ```
 [admin@aap-demo ~]$ kubectl patch deployment redhat-rhaap-portal -n redhat-rhaap-portal --type='json' -p='[
   {"op": "replace", "path": "/spec/template/spec/containers/0/resources/requests/cpu", "value": "100m"},
   {"op": "replace", "path": "/spec/template/spec/initContainers/0/resources/requests/cpu", "value": "100m"}
 ]'
 ```
-
+<br>
 
 2. Inject hostAliases to force-map the AAP domain to the cluster's internal Ingress Router ClusterIP (10.217.4.100)
-
 ```
 [admin@aap-demo ~]$ kubectl patch deployment redhat-rhaap-portal -n redhat-rhaap-portal --type='json' -p='[
   {"op": "add", "path": "/spec/template/spec/hostAliases", "value": [
@@ -876,33 +869,28 @@ Apply the following fixes for the CRC environment:
   ]}
 ]'
 ```
-
+<br>
 
 3. Wait for the rolling update to complete
-
 ```
 [admin@aap-demo ~]$ kubectl rollout status deployment/redhat-rhaap-portal -n redhat-rhaap-portal --timeout=120s
 ```
-
+<br>
 
 4. Confirm the Pod is in 2/2 Running state:
-
 ```
 [admin@aap-demo ~]$ kubectl get pods -n redhat-rhaap-portal 
 NAME                                   READY   STATUS    RESTARTS   AGE
 redhat-rhaap-portal-7cd8cf9464-n9dp7   2/2     Running   0          7m33s
 redhat-rhaap-portal-postgresql-0       1/1     Running   0          8m28s
-
 ```
-
+<br>
 
 5. Verify that the container can reach the AAP OAuth endpoint internally (HTTP 405 means the connection is fully working):
-
 ```
 [admin@aap-demo ~]$ kubectl exec -n redhat-rhaap-portal deployment/redhat-rhaap-portal -- curl -k -s -o /dev/null -w "%{http_code}\n" https://aap-aap-operator.apps-crc.testing/o/token/
 Defaulted container "backstage-backend" out of: backstage-backend, ansible-devtools-server, install-dynamic-plugins (init)
 405
-
 ```
 
 A return value of 405 indicates success.
