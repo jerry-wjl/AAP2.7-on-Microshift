@@ -363,7 +363,7 @@ crc-csi-hostpath-provisioner   kubevirt.io.hostpath-provisioner              Ret
 nfs-local-rwx (default)        k8s-sigs.io/nfs-subdir-external-provisioner   Delete          Immediate              true                   9h
 ```
 
-4. Install aap-demo:
+5. Install aap-demo:
 
 Install `operator-sdk` in the environment:
 
@@ -469,7 +469,7 @@ At this point you can run the following command to force the Operator to refresh
 [admin@aap-demo ~]$ kubectl annotate ansibleautomationplatform --all -n aap-operator force-reconcile=$(date +%s) --overwrite
 ```
 
-5. Access the aap-demo environment:
+6. Access the aap-demo environment:
 
 The access links for the aap-demo environment are obtained via `aap-demo status`:
 
@@ -519,7 +519,7 @@ aap-hub-admin-password: yXCOZqyKpjGDROcKcmpdcFuDTMocS1tT
 
 ```
 
-5. Enable aap-demo Add-ons:
+7. Enable aap-demo Add-ons:
 
 aap-demo includes the following add-ons, which can be enabled or disabled via command:
 
