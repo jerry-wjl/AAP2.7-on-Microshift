@@ -804,6 +804,4 @@ redhat-rhaap-portal-postgresql-0       1/1     Running   0          8m28s
 Defaulted container "backstage-backend" out of: backstage-backend, ansible-devtools-server, install-dynamic-plugins (init)
 405
 ```
-```
-
 如果返回值为405即OK。
