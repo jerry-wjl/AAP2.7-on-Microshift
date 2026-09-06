@@ -884,7 +884,6 @@ NAME                                   READY   STATUS    RESTARTS   AGE
 redhat-rhaap-portal-7cd8cf9464-n9dp7   2/2     Running   0          7m33s
 redhat-rhaap-portal-postgresql-0       1/1     Running   0          8m28s
 ```
-<br>
 
 5. Verify that the container can reach the AAP OAuth endpoint internally (HTTP 405 means the connection is fully working):
 ```
