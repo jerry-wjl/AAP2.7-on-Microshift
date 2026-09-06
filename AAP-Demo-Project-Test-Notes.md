@@ -712,11 +712,10 @@ First update the client hosts file:
 ```
 127.0.0.1  aap-aap-operator.apps-crc.testing  automation-orchestrator.apps-crc.testing
 ```
+<br>
+<br>
 
-<br>
-<br>
 Establish the tunnel:
-<br>
 ```
 C:\Users\jerrywjl>ssh -L 20443:192.168.72.90:443 lab-user@bastion-2vvct.cluster-2vvct.dyn.redhatworkshops.io
 ```
@@ -728,8 +727,8 @@ https://automation-orchestrator.apps-crc.testing:20443
 ```
 
 ![](images/WEBRESOURCE359f5012fae871b8b48620fe12929482image.png)
-
 <br>
+
 Enable the portal add-on:
 ```
 [admin@aap-demo ~]$ curl -fsSL https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
@@ -824,11 +823,10 @@ Next steps:
 Check status: aap-demo status portal
 Disable: aap-demo disable portal
 
-  Saved to config: ADDONS=mcp-server,ao,portal
- 
+  Saved to config: ADDONS=mcp-server,ao,portal 
 ```
-
 <br>
+
 Although the portal add-on was enabled successfully, there is one error:
 
 ```
@@ -838,18 +836,16 @@ Verifying OAuth client credentials...
    Re-run: aap-demo enable portal
 ⚠️  OAuth client verification failed (portal may still work)
 ```
+<br>
 
-<br>
 There are two main causes:
-<br>
+
 CRC/MicroShift internal DNS resolution deadlock: The Portal Pod attempts to connect to the AAP OAuth endpoint from inside the container. In a CRC/MicroShift environment, `nip.io` resolves to `127.0.0.1` inside Pods, which points back to the Pod itself rather than to the actual Ingress router — causing the connection to fail.
 
-<br>
+
 CRC node CPU resource contention (Pod Pending): The Portal requests a relatively high CPU quota by default, which can easily trigger `Insufficient cpu` on a single-node CRC environment, leaving the new Pod stuck in Pending.
 
 
-<br>
-<br>
 Apply the following fixes for the CRC environment:
 
 1. Reduce CPU request quota to resolve the Pending scheduling issue
@@ -884,6 +880,7 @@ NAME                                   READY   STATUS    RESTARTS   AGE
 redhat-rhaap-portal-7cd8cf9464-n9dp7   2/2     Running   0          7m33s
 redhat-rhaap-portal-postgresql-0       1/1     Running   0          8m28s
 ```
+<br>
 
 5. Verify that the container can reach the AAP OAuth endpoint internally (HTTP 405 means the connection is fully working):
 ```
@@ -891,5 +888,6 @@ redhat-rhaap-portal-postgresql-0       1/1     Running   0          8m28s
 Defaulted container "backstage-backend" out of: backstage-backend, ansible-devtools-server, install-dynamic-plugins (init)
 405
 ```
+
 
 A return value of 405 indicates success.
