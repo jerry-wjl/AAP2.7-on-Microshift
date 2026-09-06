@@ -1,10 +1,8 @@
 **项目地址：**
-
 [https://github.com/RedhatOfficial/aap-demo](https://github.com/RedhatOfficial/aap-demo)
 <br>
 
 **项目说明：**
-
 Deploy AAP to a local MicroShift cluster in minutes, is a LOCAL DEVELOPMENT tool and must NEVER be used in production.
 <br>
 
@@ -33,20 +31,16 @@ Deploy AAP to a local MicroShift cluster in minutes, is a LOCAL DEVELOPMENT tool
 **具体操作步骤：**
 
 1. 访问：[https://console.redhat.com/openshift/create/local](https://console.redhat.com/openshift/create/local)
-
 先下载openshift-local和pull-secret：
-
 ![](images/WEBRESOURCEd6a8349c6b4c5f294521b1c8f3378890image.png)
 
 pull-secret.txt存放位置：
-
 ```
 [root@aap-demo ~]# mkdir -p ~/.aap-demo
 
 [root@aap-demo ~]# cd .aap-demo/
 [root@aap-demo .aap-demo]# cat pull-secret.txt 
 {"auths":{"cloud.openshift.com":{xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx}}}
-
 ```
 <br>
 
@@ -104,7 +98,7 @@ crc.qcow2:  21.06 GiB / 21.06 GiB [---------------------------------------------
 oc:  129.79 MiB / 129.79 MiB [------------------------------------------------------------------------------------------------------------------------------------] 100.00%
 Your system is correctly setup for using CRC. Use 'crc start' to start the instance
 ```
-<br>
+
 ```
 [admin@aap-demo ~]$ crc start
 INFO Using bundle path /home/admin/.crc/cache/crc_libvirt_4.22.7_amd64.crcbundle 
