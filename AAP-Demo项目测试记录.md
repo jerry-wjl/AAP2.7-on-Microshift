@@ -2,9 +2,11 @@
 [https://github.com/RedhatOfficial/aap-demo](https://github.com/RedhatOfficial/aap-demo)
 <br>
 
+
 **项目说明：**
 Deploy AAP to a local MicroShift cluster in minutes, is a LOCAL DEVELOPMENT tool and must NEVER be used in production.
 <br>
+
 
 **前置条件：**
 
@@ -16,8 +18,7 @@ Deploy AAP to a local MicroShift cluster in minutes, is a LOCAL DEVELOPMENT tool
 
 - 60 GB + disk space - for aap-operator deploy
 
-
-- Pull secret — download from 
+- Pull secret — download from console.redhat.com
 
 - 如果使用虚拟机部署，确保虚拟机启动了硬件虚拟化
 
