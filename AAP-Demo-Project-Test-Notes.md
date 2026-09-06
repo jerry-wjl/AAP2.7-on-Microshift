@@ -721,6 +721,7 @@ C:\Users\jerrywjl>ssh -L 20443:192.168.72.90:443 lab-user@bastion-2vvct.cluster-
 ```
 <br>
 <br>
+
 Access the AO portal at:
 ```
 https://automation-orchestrator.apps-crc.testing:20443
